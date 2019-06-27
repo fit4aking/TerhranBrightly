@@ -1,6 +1,6 @@
 <?php
 include_once "connect_mysql.php";    
-	  $myFile = "events.txt";
+      $myFile = "events.txt";
       $fh = fopen($myFile, 'r');
       $theData = fread($fh, filesize($myFile));
       fclose($fh);
@@ -17,7 +17,7 @@ if (mysqli_num_rows($result) > 0) {
 $rowcount=mysqli_num_rows($result);
 //mysqli_free_result($result);
 $_SESSION['cnt']=$rowcount;
-echo	 "<div id=\"eon-page-container\">
+echo "<div id=\"eon-page-container\">
 <div class=\"container\">
 	<div class=\"row\">
     	<div class=\"col-md-3\">
@@ -72,33 +72,24 @@ echo "<div class=\"item\">
                     <div class=\"thumbnail\">
                       <img src=\"../events-on-now/$str/$event_img\" alt=\"Slide1\">
                       <div class=\"caption\">
-
-                        
-						<div class=\"content_text_uce\">
-						
-						<strong>$en</strong><br/>
+                        <div class=\"content_text_uce\">
+			<strong>$en</strong><br/>
                         <strong>$ed</strong><br/>
-						
-						
-						$eb <br/> $ea <br/> $fee</div>
-						
-						<br/>
-					
+				$eb <br/> $ea <br/> $fee</div>
+				<br/>		
                         <a href=\"#\" class=\"btn btn-primary\" role=\"button\">$evecurr$addmission</a> <a href=\"register.php?srch=$eC&eventname=$en&eventcode=$idc&eid=$eventid&trader=$user\" class=\"btn btn-default\" role=\"button\">Buy</a>
-						
-						
-						</p>
+				</p>
                       </div>
                     </div>        
                 </div>
 <!-- End Item -->";
 }	   
 } else {
-    echo "0 results";
+  echo "0 results";
 }
 //mysqli_close($conn); 	   
 ?>
-        <?php 
+<?php 
 echo "</div><!-- End Carousel Inner -->
               <div class=\"carousel-controls\">
               	<a class=\"left carousel-control\" href=\"#myCarousel\" data-slide=\"prev\"><span class=\"glyphicon glyphicon-chevron-left\"></span></a>
@@ -109,8 +100,11 @@ echo "</div><!-- End Carousel Inner -->
     </div>
 </div>";
 ?>
-        <p>&nbsp;</p>
-        <p><br />
-          <br/><br /><br/>
-        </p>
+<p>&nbsp;</p>
+<p>
+<br/>
+<br/>
+<br/>
+<br/>
+</p>
         
