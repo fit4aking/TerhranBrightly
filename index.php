@@ -34,12 +34,9 @@ error_reporting (E_ALL & ~E_NOTICE);
 <link rel="mask-icon" href="images/safari-pinned-tab.svg" color="#5bbad5">
 <link href="../SpryAssets/SpryTabbedPanels.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" type="text/css" href="css/lay1.css">
-
-
 <link rel="stylesheet" type="text/css" href="dt_picker/src/DateTimePicker.css" />
 <script type="text/javascript" src="dt_picker/demo/jquery-1.11.0.min.js"></script>
 <script type="text/javascript" src="dt_picker/src/DateTimePicker.js"></script>
-
 <style type="text/css">
 .TabbedPanelsContent table {
 	text-align: left;
@@ -52,9 +49,7 @@ error_reporting (E_ALL & ~E_NOTICE);
 	color: #000000;
 	font-size: 130%;
 }
-
 </style>
-
 <meta name="theme-color" content="#ffffff">
 <script type="text/javascript" src="city_state.js"></script><!--Fine 2-->
 <script src="../SpryAssets/SpryCollapsiblePanel.js" type="text/javascript"></script>
@@ -85,69 +80,39 @@ $(function() {
 });
 </script>
 </head>
-
 <body>
-
 <div id="eon-header">
-
- 
-  <a href="home.php"><img src="logo/fit4aking-business-networking-events-logo.jpg" width="100%" height="100%" alt="Business Networking Events Kent UK" longdesc="http://www.fit4aking.com" /></a>
-
-<!--<div id="scroller">
-<p id="tag">Business Networking Chat, Business & Recreational Events, Business Promotional Tools</p>
-</div>-->
-
+<a href="home.php"><img src="logo/fit4aking-business-networking-events-logo.jpg" width="100%" height="100%" alt="Business Networking Events Kent UK" longdesc="http://www.fit4aking.com" /></a>
 <br />
 </div>
-
-
 <div id="menu">
   <div id="CollapsiblePanel1" class="CollapsiblePanel">
     <div class="CollapsiblePanelTab" tabindex="0">MENU</div>
     <div class="CollapsiblePanelContent"> 
-<?php include("toc_mobile.php"); ?>
+        <?php include("toc_mobile.php"); ?>
       </div>
   </div>
 </div>
 <div id="search">
 <div id="CollapsiblePanel2" class="CollapsiblePanel">
     <div class="CollapsiblePanelTab" tabindex="0">EVENTS SEARCH</div>
-      
-      
       <div class="CollapsiblePanelContent">
-      
           <?php include("external-date-time.php"); ?>
-  
      </div>
-    
-    
   </div>
   <div align="center">
 <div id="CollapsiblePanel3" class="CollapsiblePanel">
       <div class="CollapsiblePanelTab" tabindex="0">UPCOMING EVENTS</div>
         <div class="CollapsiblePanelContent">
-      
          <!--external_upcoming_events-->
          <?php include("external_upcoming_events.php"); ?>
        
       </div>
-    </div>
-    
-    
-    
-    
-    
-    
-    
+    </div>  
 <div id="CollapsiblePanel4" class="CollapsiblePanel">
     <div class="CollapsiblePanelTab" tabindex="0" style="font-size:110%;">EVENTS MAILING LIST</div>
-    <div class="CollapsiblePanelContent"> 
-
-
-     	 
-
+    <div class="CollapsiblePanelContent"> 	
 <br />
-<!--<div id="bg_for_alerts"></div>-->
 <form action="mailing-list.php" method="post">
   <table width="80%" border="1" cellspacing="2" align="center">
   <tr>
@@ -373,24 +338,21 @@ $(function() {
     <option value="Work | Employment">Work | Employment</option>
   </select>
      </td>
-      </tr>
-      
+     </tr>
    <tr>
      <td width="176" colspan="2" class="content_text">Regions</td>
    </tr>
 <tr>
-    <td><select name="myRegion" size="1" id="region" onchange="set_country(this,country,city_state)" class="cp_forms" style="width:98%;"><label><script type="text/javascript">setRegions(this);</script></label>
+<td><select name="myRegion" size="1" id="region" onchange="set_country(this,country,city_state)" class="cp_forms" style="width:98%;"><label><script type="text/javascript">setRegions(this);</script></label>
 </select></td>
-   </tr>
-    
+	 </tr>
        <tr>
      <td class="content_text" colspan="2">Country</td>
    </tr>
-    
    <tr>
     <td>
     <select name="myCountry" size="1" disabled="disabled" id="country" onchange="set_city_state(this,city_state)" class="cp_forms" style="width:98%;">
-                        </select>
+    </select>
     </td>
    </tr>
       <tr>
@@ -403,11 +365,7 @@ $(function() {
       </select>
     </span></td>
   </tr>
-      
-      
-      
-      
-      <tr>
+  <tr>
       <td class="content_text">Email address</td>
     </tr>
       <tr>
@@ -417,28 +375,14 @@ $(function() {
       <td align="center"><br /><input type="submit"  id="" name="" value="Submit" alt="Run Search" class="pimpmybutton2" style="width:100%; height:25%; text-align:center;" /><br /></td>
       </tr>
   </table>
-    
-    
-    
     </td>
   </tr>
 </table>
-
-
-
 <br />
  </form> 
- </div>
-
-
-
-
+   </div>
   </div>
   </div>
-  
-  
-  
-  
 <div id="eon-event-categories">
       <div id="TabbedPanels1" class="TabbedPanels">
       <menu class="TabbedPanelsTabGroup">
@@ -463,7 +407,6 @@ padding-left:20px; padding-top:40px;">
     <li><a href="skill-exchange-registration.php" class="dblinks">Skill Exchange</a></li>
     <li><a href="it-solutions.php" class="dblinks">Web Design &amp; E-commerce Solution</a></li>
   </ul>
-
 </div>
 </span>
 </div>
@@ -497,11 +440,10 @@ padding-left:20px; padding-top:40px;">
 </div>
 <div id="eon-footer">&nbsp;</div>
 </div>
-<!--<!--<script src="http://codeorigin.jquery.com/jquery-1.10.2.min.js"></script> --> --><!--Not Fine-->
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"><!--Fine 3-->
 </script>
 </div>
-<script type="text/javascript"><!--Fine 1-->
+<script type="text/javascript">
 var CollapsiblePanel1 = new Spry.Widget.CollapsiblePanel("CollapsiblePanel1", {contentIsOpen:false});
 var CollapsiblePanel2 = new Spry.Widget.CollapsiblePanel("CollapsiblePanel2", {contentIsOpen:false});
 var CollapsiblePanel3 = new Spry.Widget.CollapsiblePanel("CollapsiblePanel3", {contentIsOpen:false});
