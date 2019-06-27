@@ -1,7 +1,5 @@
 <?php
 session_start();
-?>
-<?php
 $session=session_id();
 $time=time();
 $time_check=$time-600; //SET TIME 10 Minute
@@ -17,7 +15,7 @@ error_reporting (E_ALL & ~E_NOTICE);*/
 //include_once "connect_mysql.php";
 $servername = "fit4aking.com.mysql";
 $username = "fit4aking_com";
-$password = "fp2e4RXz";
+$password = "fp2e4RXzXXXYZ";
 $dbname = "fit4aking_com";
 // Create connection
 $conn = mysqli_connect($servername, $username, $password, $dbname);
@@ -56,7 +54,7 @@ mysqli_close($conn);
 // first, setup your DB-connection
 define('DB_SERVER', "fit4aking.com.mysql");
 define('DB_USER', "fit4aking_com");
-define('DB_PASSWORD', "fp2e4RXz");
+define('DB_PASSWORD', "fp2e4RXzXXXYZ");
 define('DB_TABLE', "fit4aking_com");
 $conn = mysqli_connect(DB_SERVER, DB_USER, DB_PASSWORD, DB_TABLE);
 $stmt = $conn->stmt_init();
@@ -90,15 +88,13 @@ $stmt->close();
 <link rel="stylesheet" type="text/css" href="css/slideshow-part1.css"/>-->
 <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
 <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
-
-<link rel="stylesheet" type="text/css" href="css/mobile.css"/>
-
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js" type="text/javascript"></script>
-<script type="text/javascript" src="city_state.js"></script>
-
-
+<link rel="stylesheet" type="text/css" href="dt_picker/src/DateTimePicker.css" />
 <link href="../SpryAssets/SpryCollapsiblePanel.css" rel="stylesheet" type="text/css" />
-
+<link rel="stylesheet" type="text/css" href="css/mobile.css"/>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="city_state.js"></script>	
+<script type="text/javascript" src="dt_picker/demo/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="dt_picker/src/DateTimePicker.js"></script>
 <script src="../SpryAssets/SpryCollapsiblePanel.js" type="text/javascript"></script>
 <script type="text/javascript">  
         $(document).ready(function(){
@@ -112,12 +108,6 @@ $stmt->close();
             });
             //$("#report").jExpand();
         });
-    </script> 
-	
-	
-	
-	
-	 <script language="javascript">
 function toggle(el,ev) {
     ev.preventDefault();  // prevent the link from being followed
     el = next(el);        // get the next element
@@ -138,9 +128,6 @@ function next(elem) {
     return elem;                
 }
 </script>
-<link rel="stylesheet" type="text/css" href="dt_picker/src/DateTimePicker.css" />
-<script type="text/javascript" src="dt_picker/demo/jquery-1.11.0.min.js"></script>
-<script type="text/javascript" src="dt_picker/src/DateTimePicker.js"></script>
 </head>
 
 <body>
@@ -173,16 +160,10 @@ function next(elem) {
       </div>
     </div>
   </div>
-  
-  
-  <div id="eon-event-categories">
-  
-  
-  <?php
+ <div id="eon-event-categories">
+<?php
 /*error_reporting(E_ALL);
 ini_set('display_errors', 1);*/
-
-
 // include_once("mysqli_connection.php");
 // Script and tutorial written by Adam Khoury @ developphp.com
 // Line by line explanation : youtube.com/watch?v=T2QFNu_mivw
@@ -190,7 +171,7 @@ ini_set('display_errors', 1);*/
 // Make a MySQL Connection
 $servername = "fit4aking.com.mysql";
 $username = "fit4aking_com";
-$password = "fp2e4RXz";
+$password = "fp2e4RXzXXXYZ";
 $dbname = "fit4aking_com";
 // Create connection
 $conn = mysqli_connect($servername, $username, $password, $dbname);
@@ -254,12 +235,7 @@ $theData = fread($fh, filesize($myFile));
 fclose($fh);
 //echo $theData;
 $tbl = "$theData";
-
-
-
-
 /*$query = "SELECT event_id,event_name, event_cat, event_img,username, addmission_status, COUNT(*) AS counter FROM $tbla WHERE     addmission_status='Available' GROUP BY event_name";*/ 
-
 //$stmt = mysqli_prepare($mysqli, "SELECT website_name, prod_name FROM $tbl WHERE prod_name  LIKE ?");
 //$newtime = (new \DateTime())->format('d-M-Y');
 $sql = mysqli_prepare($conn, "SELECT event_id, event_name,event_brief,event_cat,event_date,event_time_from,event_time_to,event_address,event_region,event_country,event_citystate,event_zip,event_currency,addmission_status,event_addmission_price,ticket_num,reg_date,sales_ref,item_num,event_img,youtube_url,username, COUNT(*) AS counter FROM myevents WHERE event_cat LIKE ? AND event_region LIKE ? AND event_country LIKE ? AND event_citystate LIKE ? AND addmission_status = 'Available' AND event_date LIKE ? GROUP BY event_name ASC $limit");
@@ -269,10 +245,6 @@ if ($sql) {
     mysqli_stmt_bind_result($sql,$event_id,$event_name,$event_brief_desc,$event_cat,$newevent_date,$event_time_from,
 	$event_time_to,$event_address,$event_region,$event_country,$event_citystate,$event_zip,$event_currency,$event_addmission_status,$event_addmission_price,$ticket_quantity,$ticket_number,$sales_ref,$item_num,$event_img,$youtubeurl,$username,$counter);
 }
-
-
-
-
 $query = mysqli_query($conn,$sql);
 // This shows the user what page they are on, and the total number of pages
 $textline1 = "$rows Items";
@@ -326,57 +298,30 @@ if($last != 1){
   printf("<span class=\"content_text\"><div align=\"center\">%d\n item/s paged of $catsubnum $catnum <!--$extrainfo-->
 	</div></span>
 	<!--<span class=\"style24\"><div align=\"center\"><strong>Tickets available on this site: $quaunt</strong></div</span>>-->", mysqli_stmt_num_rows($sql));
-	
-	
-	
-	
 	while($sql->fetch()){
-	
 	$mynum = "%d";
-    	
 	$eventid = "$event_id";	
-    $eventname = "$event_name";
+        $eventname = "$event_name";
 	$eventbriefdesc = "$event_brief_desc";
-    $eventcat = "$event_cat";
-    $olddate = "$newevent_date";
-	
-	
+        $eventcat = "$event_cat";
+        $olddate = "$newevent_date";
 	$timestamp=$olddate;
-    $eventdate = gmdate("d-m-Y", $timestamp);
-	
+        $eventdate = gmdate("d-m-Y", $timestamp);
 	$eventtimefrom = "$event_time_from";
 	$eventtimeto = "$event_time_to";
 	$eventaddress = "$event_address";
-	
 	$eventregion = "$event_region";
 	$eventcountry = "$event_country";
 	$eventcity = "$event_city";
 	$eventzip = "$event_zip";
 	$evecurr = "$event_currency";
-	
 	$eventaddmissionstatus = "$event_addmission_status";
 	$ticketprice = "$event_addmission_price";
 	$ticketquantity = "$ticket_quantity";
 	$ticketnumber = "$ticket_number";
 	$itemnum  =  "$item_num"; //item number
 	$eventimg = "$event_img";
-	$tot = "$counter";
-	
-	
-/*	   if ($addmission == '0.00')
-	   {
-	   $entrance_stipulation = "THIS IS A FREE EVENT";
-	   }
-	   elseif ($addmission > '0.00' && $tot == '1')
-	   {
-	   $entrance_stipulation = "THIS IS A BOOK TICKET BY PHONE/PAY AT THE DOOR EVENT";
-	   }
-	   else
-	   {
-	   $entrance_stipulation = "TICKETS LEFT: $tot";
-	   }*/
-	   
-	   
+	$tot = "$counter";   
 	   if ($ticketprice == '0.00')
 	   {
 	   $eventaddmissionstatus = "THIS IS A FREE EVENT";
@@ -389,29 +334,19 @@ if($last != 1){
 	   {
 	   $eventaddmissionstatus = "Tickets left: $tot";
 	   }
-    
 	$user = "" . base64_encode ($username) ."";
 	$str = base64_decode($user);
-	
-	
-	
 	$youtube = "$youtubeurl";
 	$_SESSION['in'] = "$itemnum";
-	
-	
 	$x ="$youtube";
     $y=str_replace("560","350", "$x");
     $z=str_replace("315","350", "$y");
-	
 if ( $z == "" ){
 $youtubevideo = "<!--<img src=\"mydefault_img/default.png\" />-->";
 }else{
 $youtubevideo = "$z";
 }
-
-	
-		
-	    //echo "<br>$sn $pn $pc $in";
+//echo "<br>$sn $pn $pc $in";
 echo "<div align=\"center\">
 <table width=\"100%\" border=\"0\" cellspacing=\"0\" cellpadding=\"4\" class=\"table1\">
   <tr>
@@ -433,48 +368,26 @@ echo "<div align=\"center\">
   </tr>
   <tr>
     <td height=\"600px\" colspan=\"2\" class=\"novids\">
-	
-	
 	<div class=\"video-container\">$z</div>
-
-	
 	<!--<div class=\"videowrapper\">$z</div>--></td>
-	
-	
-	
-	
   </tr>
   <tr>
     <td colspan=\"2\">
-	
-    
-    
-    
     <table width=\"100%\" border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
      <tr>
-       <td>
-	   
-	   
-	   
+       <td>   
         <div align=\"center\">
         <table width=\"100%\" align=\"left\" id=\"report\" class=\"table3\">
         <tr>
        <th width=\"100%\"></th>
        <th width=\"100%\"></th>
-        </tr>
-		
-		
+        </tr>	
         <tr>
          <td width=\"100%\"><div class=\"eventdetails\">More Details...</div></td>
          <td width=\"100%\"><div class=\"arrow\"></div></td>
-        </tr>
-		
-		
-		
+        </tr>	
         <tr>
-          <td colspan=\"2\" class=\"a\">
-  
-                
+          <td colspan=\"2\" class=\"a\">          
   <div class=\"more_event_details_headings\">Event Name</div><br/>
   <div class=\"content_text\">$eventname</div><br/>
   <strong class=\"more_event_details_headings\">Event Description</strong><br/>
@@ -489,14 +402,11 @@ echo "<div align=\"center\">
   <div class=\"content_text\">$evecurr$ticketprice</div><br/>
   <strong class=\"more_event_details_headings\">Note!</strong><br/> 
   <div class=\"content_text\">$eventaddmissionstatus</div>
- 
-	
-        
-			</td>
+      </td>
             </tr>
             <tr>
             <th>
-			 <br/>
+	     <br/>
 <div align=\"left\">		
 <a href=\"register.php?srch=$eventcat&amp;eventname=$eventname&amp;eid=$eventid&amp;trader=$user\" class=\"dblinks\">Buy this Ticket</a><br/><br/>
 <a href=\"map.php?pc=$eventzip&amp;return=$path\" class=\"dblinks\">Find on Map</a> <br/><br/> 
@@ -511,28 +421,21 @@ http://www.fit4aking.com$path</span>
 <br/><br/>
 <a href=\"mailinglist.php?srch=$eventcat&amp;eventname=$eventname&amp;eid=$eventid&amp;trader=$user\" class=\"dblinks\">Join this Events Mailing List</a><br/><br/>
 </div>
-			   
-			 </th>
-            <th width=\"44\"></th>
+ </th>
+      <th width=\"44\"></th>
         </tr>
         </table>
         </div>
-	
     </td>
   </tr>
 </table>
 </td>
   </tr><br/>
 </table></div><br/>";
-	//CREATE JAVASCRIPT ALERT BOX TO SHOW THAT USER NEEDS TO REGISTER BEFORE BUYING A TICKET
-
-	}
-	
+	}	
 mysqli_close($conn);
 ?>
 <br>
-
-
 <div align="center">
   <p> 
   <span class="content_text"><?php echo $textline1; ?></span>
@@ -544,8 +447,6 @@ mysqli_close($conn);
 <!--Categories container-->
  </div>
 </div>
-  
-  
   <div id="eon-footer">&nbsp;</div>
 </div>
 <!--<!--<script src="http://codeorigin.jquery.com/jquery-1.10.2.min.js"></script> --> -->
